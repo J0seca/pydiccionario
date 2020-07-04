@@ -11,17 +11,17 @@ from random import randint
 caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 print("Creador de diccionario con contraseñas al azar.\n\nLos carácteres definidos a utilizar son:")
-print(caracteres)
+print("[ " + caracteres + " ]")
 print("------------------")
 l_caract = len(caracteres) #Largo de lista de caracteres
-l_pass = input("Caracteres totales contraseña: ") #total de caracteres por contrasena
-total_pass = input("Total de contraseñas a generar: ") #total de contrasenas a generar
+l_pass = input("\nCaracteres totales contraseña: ") #total de caracteres por contrasena
+total_pass = input("\nTotal de contraseñas a generar: ") #total de contrasenas a generar
+
 
 #Verificamos si archivo existe:
 if(not os.path.isfile('diccionario.txt')):
- print('Archivo diccionario.txt no existe. Creando archivo!')
- d = open('diccionario.txt',"w") #creando archivo
- d.close()
+ print('\n\nArchivo diccionario.txt no existe. Creando archivo!')
+ diccionario = open('diccionario.txt',"w") #creando archivo
 
 else:
  #Si archivo existe se crea un respaldo en una lista
@@ -29,24 +29,19 @@ else:
  diccionario_lineas = diccionario.readlines()
  diccionario.close()
 
-
-diccionario = open("diccionario.txt","w")
-
-
-def copia_respaldo():
  if(diccionario_lineas):
-  print("\n\nArchivo original con " + str(len(diccionario_lineas)) + " contraseñas guardadas.")
+  print("\n\nArchivo original con " + str(len(diccionario_lineas)) + " contraseñas guardadas")
   print("Creando respaldo...")
   print("------------------")
+  diccionario = open("diccionario.txt","w")
 
   for i in range(0, len(diccionario_lineas)):
    diccionario.write(diccionario_lineas[i])
 
  else:
-  print("No hay respaldo en archivo original. Continuando con operación ...")
+  print("\nNo hay respaldo en archivo original. Continuando con operación ...")
   print("------------------")
 
-copia_respaldo()
 
 #Creando contrasena
 print("Iniciando proceso de creación de contraseñas ...")
