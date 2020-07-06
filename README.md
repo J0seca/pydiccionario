@@ -5,5 +5,3 @@
 #
 # Al principio del codigo se puede editar el largo y el total de contraseñas a generar.
 #
-# Se omitieron tildes en comentarios para no usar encoding, para correr sin problemas con python 2.
-#
