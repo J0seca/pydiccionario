@@ -12,10 +12,10 @@ caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 print("Creador de diccionario con contraseñas al azar.\n\nLos carácteres definidos a utilizar son:")
 print("[ " + caracteres + " ]")
-print("------------------")
+print("-"*25)
 l_caract = len(caracteres) #Largo de lista de caracteres
-l_pass = input("\nCaracteres totales contraseña: ") #total de caracteres por contrasena
-total_pass = input("\nTotal de contraseñas a generar: ") #total de contrasenas a generar
+l_pass = int(input("\nCaracteres totales contraseña: ")) #total de caracteres por contrasena
+total_pass = int(input("\nTotal de contraseñas a generar: ")) #total de contrasenas a generar
 
 
 #Verificamos si archivo existe:
@@ -32,7 +32,7 @@ else:
  if(diccionario_lineas):
   print("\n\nArchivo original con " + str(len(diccionario_lineas)) + " contraseñas guardadas")
   print("Creando respaldo...")
-  print("------------------")
+  print("-"*25)
   diccionario = open("diccionario.txt","w")
 
   for i in range(0, len(diccionario_lineas)):
@@ -40,7 +40,8 @@ else:
 
  else:
   print("\nNo hay respaldo en archivo original. Continuando con operación ...")
-  print("------------------")
+  diccionario = open("diccionario.txt","w")
+  print("-"*25)
 
 
 #Creando contrasena
@@ -60,9 +61,10 @@ while e <= (total_pass - 1):
 
 diccionario.close()
 diccionario = open("diccionario.txt","r") #Ineficiente pero lo abrimos para saber total de contrasenas con readlines
-print("------------------")
+print("-"*25)
 print("Proceso de creación de contraseñas terminado!")
-print("------------------")
+print("-"*25)
 print("Se creó un total de " + str(e) + " contraseñas. Contraseñas totales en archivo: " + str(len(diccionario.readlines())) )
-print("------------------")
-diccionario.close()
+print("-"*25)
+input("Enter para salir.")
+#diccionario.close()
